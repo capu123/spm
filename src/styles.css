@@ -6,3 +6,16 @@ body, h3, h2, h1{
 body {
     margin-top: -24px;
 }
+
+
+.navbar {
+    margin-top: 17px;
+    
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    /* margin-left: auto; */
+}
