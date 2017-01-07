@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {ProductService} from './products/product.service'
 @Component({
   selector: 'pm-root',
   template: `
@@ -7,8 +7,10 @@ import { Component } from '@angular/core';
         <h1>{{ pageTitle }}</h1>
         <pm-products></pm-products>
     </div>
-     `
-  //,styleUrls: ['./app.component.css']
+     `,
+  //styleUrls: ['./app.component.css'],
+  providers: [ProductService]
+
 })
 export class AppComponent {
   pageTitle: string = 'SRC Product Management';
