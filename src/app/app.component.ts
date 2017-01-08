@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ProductService} from './products/product.service'
+
 @Component({
   selector: 'pm-root',
   template: `
@@ -19,7 +19,7 @@ import {ProductService} from './products/product.service'
     </div>
      `,
   //styleUrls: ['./app.component.css'],
-  providers: [ProductService]
+  //providers: [ProductService]
 
 })
 export class AppComponent {

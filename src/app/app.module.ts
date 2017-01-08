@@ -1,40 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './products/product-list.component';
-import { ProductDetailGuard } from './products/product-guard.service';
-import { ProductFilterPipe } from './products/product-filter.pipe';
-import { StarComponent } from './shared/star.component';
 import { WelcomeComponent } from './home/welcome.component';
-import { ProductDetailComponent } from './products/product-detail.component';
+import { ProductModule } from './products/product.module';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ProductFilterPipe,
-    StarComponent,
-    WelcomeComponent,
-    ProductDetailComponent
+    WelcomeComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot([
-      { path: 'products', component: ProductListComponent },
-      { path: 'product/:id', 
-        canActivate: [ProductDetailGuard],
-        component: ProductDetailComponent },
+    BrowserModule, //registers critical app Service Providers & imports+exports CommonModule (which declares and exports ngIf & ngFor)
+    HttpModule, //registers Angular Http Client Service Provider
+    RouterModule.forRoot([ //here we configure our default route & any wild card routes
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
-    ])
+    ]),
+    ProductModule // Feature Module
   ],
-  providers: [ ProductDetailGuard ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] //StartUp Component(s) -this array identifies the root component as the bootstrap component
 })
 export class AppModule { }
